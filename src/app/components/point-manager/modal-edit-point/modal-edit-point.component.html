@@ -1,0 +1,41 @@
+
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Modal Title</h2>
+      <div>
+        <form class="studentform" (ngSubmit)="onEdit()">
+          <div class="contentlable">
+            <label for="msv">Mã Sinh Viên:</label>
+            <input type="text" id="fname" [ngModel]="originalStudent.msv" disabled="true" name="msv"><br>
+          </div>
+          <div class="contentlable">
+            <label for="fullName">Họ và Tên:</label>
+            <input type="text" id="lname" [ngModel]="originalStudent.fullName" disabled="true" name="fullName"><br>
+          </div>
+          <div *ngFor="let point of originalStudent.points; let i=index">
+            <!-- Loop through points array -->
+            <div class="contentlable">
+              <label for="subjectName{{i}}">Tên Môn:</label>
+              <input type="text" id="subjectName{{i}}" [(ngModel)]="point.subjectName" name="subjectName{{i}}"><br>
+            </div>
+            <div class="contentlable">
+              <label for="soTin{{i}}">Số Tín:</label>
+              <input type="text" id="soTin{{i}}" [(ngModel)]="point.SoTin" name="soTin{{i}}"><br>
+            </div>
+            <div class="contentlable">
+              <label for="diem{{i}}">Điểm:</label>
+              <input type="text" id="diem{{i}}" [(ngModel)]="point.point" name="diem{{i}}"><br>
+            </div>
+          </div>
+          <!-- Button to add new subject -->
+          <button *ngIf="openSubject" type="button" (click)="addSubject()">Thêm Điểm Môn</button><br>
+          <div class="contentbtn">
+            <button type="submit">Edit</button>
+            <button (click)="closeModal()">Close</button>
+          </div>
+  
+        </form>
+      </div>
+  
+    </div>
+  </div>

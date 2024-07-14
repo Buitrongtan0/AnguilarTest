@@ -1,0 +1,31 @@
+
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Modal Title</h2>
+      <div>
+        <form class="studentform" >
+          <div *ngFor="let point of originalStudent.points; let i=index">
+            <!-- Loop through points array -->
+            <div class="contentlable">
+              <label for="subjectName{{i}}">Tên Môn:</label>
+              <input type="text" id="subjectName{{i}}" [ngModel]="point.subjectName" name="subjectName{{i}}"><br>
+            </div>
+            <div class="contentlable">
+              <label for="soTin{{i}}">Số Tín:</label>
+              <input type="text" id="soTin{{i}}" [ngModel]="point.SoTin" name="soTin{{i}}"><br>
+            </div>
+            <div class="contentlable">
+              <label for="diem{{i}}">Điểm:</label>
+              <input type="text" id="diem{{i}}" [ngModel]="point.point" name="diem{{i}}"><br>
+            </div>
+          </div>
+          <!-- Button to add new subject -->
+          <div class="contentbtn">
+            <button (click)="closeModal()">Close</button>
+          </div>
+  
+        </form>
+      </div>
+  
+    </div>
+  </div>

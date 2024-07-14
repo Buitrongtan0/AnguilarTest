@@ -1,0 +1,59 @@
+h1 {
+    font-size : 22px;
+    text-align: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    .content-up {
+        
+        .contentSearch {
+            display       : flex;
+            flex-direction: row;
+            position      : relative;
+            align-items   : center;
+            margin-bottom: 5px;
+            margin-left: 15px;
+
+            input {
+                margin-right: 10px;
+                width       : 200px;
+                padding     : 5px 32px;
+            }
+
+            svg {
+                position: absolute;
+                left    : 10px;
+                top     : 11px;
+            }
+        }
+    }
+
+    .content-Down {
+        table {
+            font-family    : arial, sans-serif;
+            border-collapse: collapse;
+            width          : 100%;
+        }
+
+        td,
+        th {
+            border    : 1px solid #dddddd;
+            text-align: left;
+            padding   : 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .pagination{
+            display: flex;
+            float: right;
+            margin-top: 10px;
+            margin-right: 200px;
+        }
+    }
+} 
+ 

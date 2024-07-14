@@ -1,0 +1,34 @@
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Modal Title</h2>
+      <div>
+        <form class="studentform" (ngSubmit)="onSubmit()">
+          <div class="contentlable">
+            <label for="MaMonHoc">Mã môn Học:</label>
+            <input type="text" id="fname" [(ngModel)]="class.MaMonHoc" name="MaMonHoc">
+          </div>
+          <div class="contentlable">
+            <label for="className">Tên lớp học</label>
+            <input type="text" id="lname" [(ngModel)]="class.className" name="className">
+          </div>
+          <div class="contentlable">
+            <label for="teacherName">Tên Giáo Viên:</label>
+            <input type="text" id="fname" [(ngModel)]="class.teacherName" name="teacherName">
+          </div>
+          <div class="contentlable">
+            <label for="SoTin">Số Tín:</label>
+            <input type="text" id="lname" [(ngModel)]="class.SoTin" name="SoTin">
+          </div>
+          <div class="contentlable">
+            <label for="Status">Trạng Thái:</label>
+            <input type="text" id="lname" [(ngModel)]="class.Status" name="Status">
+          </div>
+          <div class="contentbtn">
+            <button type="submit">Submit</button>
+            <button (click)="closeModal()">Close</button>
+          </div>
+        </form>
+      </div>
+  
+    </div>
+  </div>

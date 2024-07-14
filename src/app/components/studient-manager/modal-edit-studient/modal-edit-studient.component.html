@@ -1,0 +1,39 @@
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Modal Title</h2>
+      <div>
+        <form class="studentform" (ngSubmit)="onEdit()">
+          <div class="contentlable">
+            <label for="msv">Mã Sinh Viên:</label>
+            <input type="text" id="fname" [(ngModel)]="originalStudent.msv" disabled="true" name="msv"><br>
+          </div>
+          <div class="contentlable">
+            <label for="fullName">Họ và Tên:</label>
+            <input type="text" id="lname" [(ngModel)]="originalStudent.fullName" name="fullName"><br>
+          </div>
+          <div class="contentlable">
+            <label for="phoneNumber">SDT:</label>
+            <input type="text" id="fname" [(ngModel)]="originalStudent.phoneNumber" name="phoneNumber"><br>
+          </div>
+          <div class="contentlable">
+            <label for="address">Địa chỉ:</label>
+            <input type="text" id="lname" [(ngModel)]="originalStudent.address" name="address"><br>
+          </div>
+          <div class="contentlable">
+            <label for="className">Tên lớp:</label>
+            <input type="text" id="lname" [(ngModel)]="originalStudent.className" name="className"><br>
+          </div>
+          <div class="contentlable">
+            <label for="departmentName">Tên Kha:</label>
+            <input type="text" id="lname" [(ngModel)]="originalStudent.departmentName" name="departmentName">
+          </div>
+          <div class="contentbtn">
+            <button type="submit">Edit</button>
+            <button (click)="closeModal()">Close</button>
+          </div>
+  
+        </form>
+      </div>
+  
+    </div>
+  </div>
