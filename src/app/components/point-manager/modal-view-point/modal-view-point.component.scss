@@ -33,7 +33,10 @@
         .contentlable {
           width : 50%;
           margin: 5px 0;
-  
+          label{
+            width: 130px;
+            margin-left: 10px;
+          }
           input {
             width        : 90%;
             height       : 30px;
