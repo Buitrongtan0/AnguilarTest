@@ -1,34 +1,49 @@
 <div class="modal-overlay" (click)="closeModal()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <h2>Thêm Lớp</h2>
-      <div>
-        <form class="studentform" (ngSubmit)="onSubmit()">
-          <div class="contentlable">
-            <label for="MaMonHoc">Mã môn Học:</label>
-            <input type="text" id="fname" [(ngModel)]="class.MaMonHoc" name="MaMonHoc">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Thêm Lớp</h2>
+    <div>
+      <form class="studentform" [formGroup]="classForm" (ngSubmit)="onSubmit()">
+        <div class="contentlable">
+          <label for="MaMonHoc">Mã môn Học:</label>
+          <input type="text" id="fname" formControlName="MaMonHoc">
+          <div *ngIf="classForm.get('MaMonHoc')!.invalid && classForm.get('MaMonHoc')!.touched">
+            Mã môn Học is required.
           </div>
-          <div class="contentlable">
-            <label for="className">Tên lớp học</label>
-            <input type="text" id="lname" [(ngModel)]="class.className" name="className">
+        </div>
+        <div class="contentlable">
+          <label for="className">Tên lớp học</label>
+          <input type="text" id="lname" formControlName="className">
+          <div *ngIf="classForm.get('className')!.invalid && classForm.get('className')!.touched">
+            Tên lớp học is required.
           </div>
-          <div class="contentlable">
-            <label for="teacherName">Tên Giáo Viên:</label>
-            <input type="text" id="fname" [(ngModel)]="class.teacherName" name="teacherName">
+        </div>
+        <div class="contentlable">
+          <label for="teacherName">Tên Giáo Viên:</label>
+          <input type="text" id="fname" formControlName="teacherName">
+          <div *ngIf="classForm.get('teacherName')!.invalid && classForm.get('teacherName')!.touched">
+            Tên Giáo Viên is required.
           </div>
-          <div class="contentlable">
-            <label for="SoTin">Số Tín:</label>
-            <input type="text" id="lname" [(ngModel)]="class.SoTin" name="SoTin">
+        </div>
+        <div class="contentlable">
+          <label for="SoTin">Số Tín:</label>
+          <input type="text" id="lname" formControlName="SoTin">
+          <div *ngIf="classForm.get('SoTin')!.invalid && classForm.get('SoTin')!.touched">
+            <div *ngIf="classForm.get('SoTin')!.errors?.['required']">Số Tín is required.</div>
+            <div *ngIf="classForm.get('SoTin')!.errors?.['pattern']">Số Tín must be a number.</div>
           </div>
-          <div class="contentlable">
-            <label for="Status">Trạng Thái:</label>
-            <input type="text" id="lname" [(ngModel)]="class.Status" name="Status">
+        </div>
+        <div class="contentlable">
+          <label for="Status">Trạng Thái:</label>
+          <input type="text" id="lname" formControlName="Status">
+          <div *ngIf="classForm.get('Status')!.invalid && classForm.get('Status')!.touched">
+            Trạng Thái is required.
           </div>
-          <div class="contentbtn">
-            <button type="submit">Submit</button>
-            <button (click)="closeModal()">Close</button>
-          </div>
-        </form>
-      </div>
-  
+        </div>
+        <div class="contentbtn">
+          <button type="submit">Submit</button>
+          <button type="button" (click)="closeModal()">Close</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>

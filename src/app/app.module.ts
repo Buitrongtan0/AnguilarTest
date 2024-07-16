@@ -8,7 +8,7 @@ import { ClassManagerComponent } from './components/class-manager/class-manager.
 import { PointManagerComponent } from './components/point-manager/point-manager.component';
 import { ModalAddStudientComponent } from './components/studient-manager/modal-add-studient/modal-add-studient.component';
 import { ModalEditStudientComponent } from './components/studient-manager/modal-edit-studient/modal-edit-studient.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalEditPointComponent } from './components/point-manager/modal-edit-point/modal-edit-point.component';
 import { ModalViewPointComponent } from './components/point-manager/modal-view-point/modal-view-point.component';
@@ -34,7 +34,9 @@ import { ModalEditClassComponent } from './components/class-manager/modal-edit-c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

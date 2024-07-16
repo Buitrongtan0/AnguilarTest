@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 interface Class {
   className: string;
   teacherName: string;
@@ -23,12 +24,26 @@ export class ModalAddClassComponent {
     Status: '',
     MaMonHoc: '',  
   };
+  classForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.classForm = this.fb.group({
+      MaMonHoc: ['', Validators.required],
+      className: ['', Validators.required],
+      teacherName: ['', Validators.required],
+      SoTin: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      Status: ['', Validators.required]
+    });
+  }
   closeModal() {
     this.close.emit();
   }
   onSubmit() {
-    this.submit.emit({class: this.class});
-    // console.log(this.student)
-    this.closeModal();
+    if (this.classForm.valid) {
+      this.submit.emit({ class: this.classForm.value });
+      this.closeModal();
+    }
   }
 }

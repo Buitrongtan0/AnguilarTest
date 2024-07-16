@@ -2,34 +2,54 @@
     <div class="modal-content" (click)="$event.stopPropagation()">
       <h2>Thêm Sinh Viên</h2>
       <div>
-        <form class="studentform" (ngSubmit)="onSubmit()">
+        <form class="studentform" [formGroup]="studentForm" (ngSubmit)="  onSubmit()">
           <div class="contentlable">
             <label for="msv">Mã Sinh Viên:</label>
-            <input type="text" id="fname" [(ngModel)]="student.msv" name="msv">
+            <input formControlName="msv">
+            <div *ngIf="studentForm.get('msv')?.invalid && studentForm.get('msv')?.touched">
+              <small *ngIf="studentForm.get('msv')?.errors?.['required']">Mã Sinh Viên là bắt buộc.</small>
+            </div>
           </div>
           <div class="contentlable">
             <label for="fullName">Họ và Tên:</label>
-            <input type="text" id="lname" [(ngModel)]="student.fullName" name="fullName">
+            <input formControlName="fullName">
+            <div *ngIf="studentForm.get('fullName')?.invalid && studentForm.get('fullName')?.touched">
+              <small *ngIf="studentForm.get('fullName')?.errors?.['required']">Họ và Tên là bắt buộc.</small>
+              <small *ngIf="studentForm.get('fullName')?.errors?.['minlength']">Họ và Tên phải có ít nhất 5 ký tự.</small>
+            </div>
           </div>
           <div class="contentlable">
-            <label for="phoneNumber">SDT:</label>
-            <input type="text" id="fname" [(ngModel)]="student.phoneNumber" name="phoneNumber">
+            <label for="phoneNumber">Số Điện Thoại:</label>
+            <input formControlName="phoneNumber">
+            <div *ngIf="studentForm.get('phoneNumber')?.invalid && studentForm.get('phoneNumber')?.touched">
+              <small *ngIf="studentForm.get('phoneNumber')?.errors?.['required']">Số Điện Thoại là bắt buộc.</small>
+              <small *ngIf="studentForm.get('phoneNumber')?.errors?.['pattern']">Số Điện Thoại chỉ chứa các chữ số.</small>
+            </div>
           </div>
           <div class="contentlable">
-            <label for="address">Địa chỉ:</label>
-            <input type="text" id="lname" [(ngModel)]="student.address" name="address">
+            <label for="address">Địa Chỉ:</label>
+            <input formControlName="address">
+            <div *ngIf="studentForm.get('address')?.invalid && studentForm.get('address')?.touched">
+              <small *ngIf="studentForm.get('address')?.errors?.['required']">Địa Chỉ là bắt buộc.</small>
+            </div>
           </div>
           <div class="contentlable">
-            <label for="className">Tên lớp:</label>
-            <input type="text" id="lname" [(ngModel)]="student.className" name="className">
+            <label for="className">Tên Lớp:</label>
+            <input formControlName="className">
+            <div *ngIf="studentForm.get('className')?.invalid && studentForm.get('className')?.touched">
+              <small *ngIf="studentForm.get('className')?.errors?.['required']">Tên Lớp là bắt buộc.</small>
+            </div>
           </div>
           <div class="contentlable">
-            <label for="departmentName">Tên Kha:</label>
-            <input type="text" id="lname" [(ngModel)]="student.departmentName" name="departmentName">
+            <label for="departmentName">Tên Khoa:</label>
+            <input formControlName="departmentName">
+            <div *ngIf="studentForm.get('departmentName')?.invalid && studentForm.get('departmentName')?.touched">
+              <small *ngIf="studentForm.get('departmentName')?.errors?.['required']">Tên Khoa là bắt buộc.</small>
+            </div>
           </div>
           <div class="contentbtn">
-            <button type="submit">Submit</button>
-            <button (click)="closeModal()">Close</button>
+            <button type="submit" [disabled]="studentForm.invalid">Submit</button>
+            <button type="button" (click)="closeModal()">Close</button>
           </div>
         </form>
       </div>

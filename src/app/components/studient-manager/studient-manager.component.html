@@ -42,7 +42,7 @@
       </div>
       <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
     </div>
-    <app-modal-add-studient *ngIf="modalOpen" (close)="closeModal()" (submit)="addStudent($event.student)">
+    <app-modal-add-studient *ngIf="modalOpen"  (close)="closeModal()" (submit)="addStudent($event.student)">
     </app-modal-add-studient>
     <app-modal-edit-studient *ngIf="modalOpenEdit" [originalStudent]="originalStudent" (closeEdit)="closeModalEdit()"
       (submit)="EditStudent($event.originalStudent)">
